@@ -21,7 +21,7 @@ public class NumberLinkedList {
 		
 		numbers.remove(2);
 		System.out.println("Deleted element index 2 = " + numbers.traversal());
-		
+		 
 		numbers.removeLastElement();
 		System.out.println("Deleted the last element = " + numbers.traversal());
 	}

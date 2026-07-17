@@ -83,9 +83,9 @@ public class LinkedList {
 		}
 	}
 	
-	public int length() {}
+	// public int length() {}
 	
-	public Object get(int position) {}
+	// public Object get(int position) {}
 	
 	public void set(int position, Object value) {}
 	

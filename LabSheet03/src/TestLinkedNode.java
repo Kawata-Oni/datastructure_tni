@@ -23,7 +23,7 @@ public class TestLinkedNode {
 		System.out.println("Address = " + Node.getAddress(node4));
 		System.out.println("Data = " + node4.data);
 		System.out.println("Pointer address = " + Node.getAddress(node4.next));
-		
+		 
 		// node 1 point to node 2
 		node1.next = node2;
 		node2.next = node3;
