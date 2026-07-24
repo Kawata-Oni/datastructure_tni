@@ -83,11 +83,44 @@ public class LinkedList {
 		}
 	}
 	
-	// public int length() {}
+	public int length() {
+		int length_node = 0;
+		Node current_node = head;
+
+		while (current_node != null) {
+			current_node = current_node.next;	
+			length_node++;
+		}
+		return length_node;
+	}
 	
-	// public Object get(int position) {}
+	public Object get(int position) {
+		Node current_node = head;
+		int current_position = 0;
+
+		while (current_position != position) {
+			current_node = current_node.next;
+			current_position++;
+		}
+
+		return current_node.data;
+	}
 	
-	public void set(int position, Object value) {}
+	public void set(int position, Object value) {
+		Node current_node = head;
+		int current_position = 0;
+
+		while (current_node != null) {
+			if (current_position == position) {
+				current_node.data = value;
+			}
+
+			current_position++;
+			current_node = current_node.next;
+		}
+
+		
+	}
 	
 	public void clear() {
 		head = null;
