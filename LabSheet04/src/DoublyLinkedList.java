@@ -74,7 +74,8 @@ public class DoublyLinkedList {
 				tail = null;
 			} else {
 				// write statement for deleting the last node
-				
+				tail = tail.previous;
+				tail.next = null;
 			}
 		}
 	}
@@ -87,9 +88,20 @@ public class DoublyLinkedList {
 				tail = null;
 			} else if (position == 0) {
 				// write statement for deleting the beginning
-				
+				head = head.next;
+				head.previous = null;
 			} else {
 				// write statement for deleting the specific position
+				Node current_node = head;
+				int current_position = 0;
+				while (current_node != null && current_position < position) {
+					current_node = current_node.next;
+					current_position++;
+				}
+				current_node.previous.next = current_node.next;
+				current_node.next.previous = current_node.previous;
+				current_node.next = null;
+				current_node.previous = null;
 				
 			}
 		}
@@ -97,7 +109,16 @@ public class DoublyLinkedList {
 
 	// Method for a backward traversal (from the last node to the first node)
 	public String backwardTraversal() {
-		return null;
+		Node current_node = tail;
+		String result = "[";
+		boolean first = true;
+		while (current_node != null) {
+			result += (!first ? ", " : "") + current_node.data;
+			current_node = current_node.previous;
+			first = false;
+		}
+		result += "]";
+		return result;
 	}
 	
 }
