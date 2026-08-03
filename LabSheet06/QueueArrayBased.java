@@ -3,7 +3,7 @@ public class QueueArrayBased {
 	// attributes in Queue Array-Based
 	private int[] queue;
 	private final int MAX_SIZE = 50;
-	private int size;
+	private int size; // จำนวนข้อมูลใน queue
 	
 	// create an empty queue with default capacity
 	public QueueArrayBased() {
@@ -18,27 +18,35 @@ public class QueueArrayBased {
 	}
 	
 	public boolean isEmpty() {
-
-		return false;
+		return size == 0;
 	}
 	
 	public boolean isFull() {
-
-		return false;
+		return size == queue.length;
 	}
 	
 	public boolean enqueue(int new_element) {
-
+		if(!isFull()) {
+			queue[size] = new_element;
+			size++;
+			return true;
+		}
 		return false;
 	}
 	
 	public int peek() {
-
-		return -1;
+		return (!isEmpty())? queue[0] : -1;
 	}
 
 	public int dequeue() {
-
+		if(!isEmpty()) {
+			int temp = queue[0];
+			for (int i = 1; i < size; i++) {
+				queue[i-1] = queue[i];
+			}
+			size--;
+			return temp;
+		}
 		return -1;
 	}
 }
