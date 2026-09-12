@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree {
@@ -209,5 +210,34 @@ public class BinaryTree {
 			}
 		} // End outer else
 	} // End method
+
+	public Node findNode(int N) {
+		if (root == null) {
+			return null;
+		}
+
+		Queue<Node> queue = new LinkedList<>();
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			Node current = queue.poll();
+
+			if (current.data == N) {
+				return current;
+			}
+
+			// add left child to queue
+			if (current.left != null) {
+				queue.add(current.left);
+			}
+
+			// add right child to queue
+			if (current.right != null) {
+				queue.add(current.right);
+			}
+		}
+
+		return null; // node is not found
+}
 	
 }
