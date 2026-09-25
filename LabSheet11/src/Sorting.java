@@ -68,7 +68,7 @@ public class Sorting {
 			while (array[i]<pivot) { i++; }
 			while (array[j]>pivot) { j--; }
 			if (i>=j) {break;}
-			int temp = i;
+			int temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
 			i++;
